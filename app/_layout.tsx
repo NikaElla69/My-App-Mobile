@@ -7,6 +7,7 @@ import 'react-native-reanimated'; //importando animação react-native
 import { StyleSheet, Text, View, ScrollView } from 'react-native'; //importando as bibliotecas react-native
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import Header from '@/components/Header';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -22,11 +23,13 @@ const styles = StyleSheet.create({
 //exportando o RootLayout
 export default function RootLayout() {
 
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
+
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <Text>Hello Word!</Text>
-      </View>
+      <Header title="Este é o titulo" subtitle="Este é o subtitulo" />
     </ScrollView>
   )
 
